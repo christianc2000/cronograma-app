@@ -16,8 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/cronograma/create',[App\Http\Controllers\Web\Cronograma::class,'create'])->name('cronograma.create');
-
+Route::get('/cronograma',[App\Http\Controllers\Web\CronogramaController::class,'index'])->name('cronograma.index');
+Route::get('/cronograma/create',[App\Http\Controllers\Web\CronogramaController::class,'create'])->name('cronograma.create');
+Route::post('/cronograma/store',[App\Http\Controllers\Web\CronogramaController::class,'store'])->name('cronograma.store');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
